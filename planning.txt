@@ -1,0 +1,63 @@
+Budget Reddit:
+
+Models:
+    Users:
+        Name 
+        Password
+
+    Posts:
+        Link 
+        Description
+        Comments: [ CommentIds ]
+        
+    Comments {
+        Description
+        Post: PostId
+    }
+
+MVP/Bronze = Models + Projects working as intended (full crud for both, includes sub directories) 
+
+Bronze Dependencies:
+Express
+Mongo
+Mongoose
+Handlebars
+body-parser
+
+Silver: User Auth, Delete warnings (warnings about deleting folders with files/folders in them)
+
+Silver Dependencies:
+Cookie-Parcer
+Flash
+express session
+passport
+passport-local
+
+
+Gold: Suggesting files
+
+Gold Dependencies:
+
+None, I think.
+
+
+
+const Post = new Schema({
+    comments: [{
+        type: Schema.ObjectId,
+        ref: 'Comment'
+    }]
+})
+
+const Comment = new Schema({
+    post: {
+        type: Schema.ObjectId,
+        ref: 'Post'
+    }
+})
+
+Full crud Posts
+Full crud Comments
+auth
+auth for posts/comments
+
