@@ -1,0 +1,11 @@
+<h1>Posts</h1>
+
+{{#if posts}}
+<ul>
+  {{#each posts }}
+  <li>
+    <a href="/post/{{id}}">{{title}} - {{link}}</a>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
