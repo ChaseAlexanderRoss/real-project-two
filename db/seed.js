@@ -1,4 +1,4 @@
-const Post = require('../models/index')
+const { Post } = require('../models/index')
 
 Post.remove({}).then(function() {
     Post.create({
