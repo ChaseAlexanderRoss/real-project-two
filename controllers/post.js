@@ -48,5 +48,16 @@ module.exports = {
         console.log(post)
         res.redirect("/");
       });
-    }
+    },
+    comment: function(req, res) {
+      const addComment = {
+        comment: req.body.comment
+      };
+      Post.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { comments: addComment } }
+      ).then(post => {
+        res.redirect(`/post/${post._id}`);
+      });
+     }
 };
