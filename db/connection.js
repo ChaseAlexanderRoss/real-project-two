@@ -1,15 +1,18 @@
-const mongoose = require('mongoose')
-if (process.env.NODE_ENV == "production") {
-    mongoose.connect(process.env.DB_URL, {useNewUrlParser: true}, function(err) {
-        if (err) { return console.log(err);}
-      })
+const mongoose = require('mongoose');
 
+if (process.env.NODE_ENV == 'production') {
+	mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, function(err) {
+		if (err) {
+			return console.log(err);
+		}
+	});
 } else {
-    mongoose.connect("mongodb://localhost/post", {useNewUrlParser: true}, function(err) {
-        if (err) { return console.log(err);}
-      })
+	mongoose.connect('mongodb://localhost/post', { useNewUrlParser: true }, function(err) {
+		if (err) {
+			return console.log(err);
+		}
+	});
 }
-mongoose.connect('mongodb://localhost/post')
 
-mongoose.Promise = Promise
-module.exports = mongoose
+mongoose.Promise = Promise;
+module.exports = mongoose;
