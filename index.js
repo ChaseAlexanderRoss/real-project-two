@@ -9,4 +9,6 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(require('./routes/index.js'));
 
-app.listen(3000, () => console.log('listenting on port 3k'));
+app.listen(app.get('port'), () => {
+	console.log(`App listening on port ${app.get('port')}`);
+});
